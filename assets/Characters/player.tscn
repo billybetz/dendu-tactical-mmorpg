@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dy7u55j04ykml"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0npdw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_64kx2"]
+albedo_color = Color(0.52703, 0.601957, 0.938471, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sibks"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_uu5f0"]
+albedo_color = Color(1, 0.517647, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gat8e"]
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.5, 2.08165e-12)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_0npdw")
+surface_material_override/0 = SubResource("StandardMaterial3D_64kx2")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.248375, 0, 0, 0, 0.248375, 0, 0, 0, 0.248375, 0.00764384, 0.335645, -0.604597)
+mesh = SubResource("BoxMesh_sibks")
+surface_material_override/0 = SubResource("ORMMaterial3D_uu5f0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_gat8e")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.780932, 0.624616, 0, -0.624616, 0.780932, -0.246805, 3.99452, 3.36084)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true
+debug_path_custom_color = Color(0.746958, 0, 0.254393, 1)
